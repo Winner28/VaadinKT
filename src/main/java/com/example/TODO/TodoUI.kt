@@ -1,4 +1,4 @@
-package com.example
+package com.example.TODO
 
 import com.vaadin.icons.VaadinIcons
 import com.vaadin.server.VaadinRequest
@@ -7,7 +7,7 @@ import com.vaadin.ui.*
 import com.vaadin.ui.themes.ValoTheme
 import org.springframework.beans.factory.annotation.Autowired
 
-@SpringUI
+//@SpringUI
 class TodoUI: UI() {
 
     val root by lazy {

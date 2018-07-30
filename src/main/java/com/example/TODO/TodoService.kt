@@ -1,4 +1,4 @@
-package com.example
+package com.example.TODO
 
 import com.vaadin.spring.annotation.SpringComponent
 import org.springframework.data.jpa.repository.JpaRepository

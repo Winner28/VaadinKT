@@ -1,4 +1,4 @@
-package com.example
+package com.example.TODO
 
 import com.vaadin.data.Binder
 import com.vaadin.spring.annotation.SpringComponent
