@@ -20,11 +20,7 @@ data class User(
 @SpringComponent
 interface UserRepository: JpaRepository<User, Long>
 
-interface UserService {
-    
-}
-
 @SpringComponent
-class UserServiceImpl {
+class UserService {
 
 }
