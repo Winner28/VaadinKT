@@ -17,8 +17,6 @@ import kotlin.reflect.full.createInstance
 @SpringUI
 class VaadinMain: UI() {
 
-    val logger = Logger.getLogger("UI")
-
     override fun init(rq: VaadinRequest?) {
         Page.getCurrent().setTitle("Admin Page")
         val root = AbsoluteLayout().apply {
@@ -34,7 +32,7 @@ class VaadinMain: UI() {
         }
         val nav = Navigator(this, mainContent).apply {  }
         nav.addView(MoneyView::class)
-        nav.addView("", RedirectTo(""))
+        nav.addView("", RedirectTo(nav.getNavigationState(MoneyView::class)))
 
         val menuContent = VerticalLayout().apply {
             setWidthUndefined()
@@ -45,8 +43,9 @@ class VaadinMain: UI() {
                 styleName = ValoTheme.LABEL_H1
             })
             addComponent(Button("Money") { _ ->
-                ui.navigator.navigateTo("money")
+                nav.navigateTo(MoneyView::class)
             })
+            addComponent(Button("Profile"))
             addComponent(Button("MoneyGoes"))
 
             addComponentsAndExpand(VerticalLayout())
@@ -67,27 +66,21 @@ class VaadinMain: UI() {
     private fun Navigator.addView(component: KClass<out View>) {
         addView(getNavigationState(component), component.createInstance())
     }
-
-    fun Navigator.getNavigationState(component: KClass<out View>): String =
-            component.java.getAnnotation(NavigableView::class.java)?.state
-                    ?: throw Throwable("View should be annotated with NavigableView")
-
-    fun Navigator.navigateTo(component: KClass<out View>, vararg params: String?) {
-        navigateTo(arrayOf(getNavigationState(component), *params.filterNotNull().toTypedArray()).joinToString("/"))
-    }
 }
 
+fun Navigator.getNavigationState(component: KClass<out View>): String =
+        component.java.getAnnotation(NavigableView::class.java)?.state
+                ?: throw Throwable("View should be annotated with NavigableView")
 
-
-
+fun Navigator.navigateTo(component: KClass<out View>, vararg params: String?) {
+    navigateTo(arrayOf(getNavigationState(component), *params.filterNotNull().toTypedArray()).joinToString("/"))
+}
 
 @Inherited
 annotation class NavigableView(val state: String)
 
 class RedirectTo(val state: String): View, CustomComponent() {
-
     override fun enter(p0: ViewChangeListener.ViewChangeEvent?) {
         ui.navigator.navigateTo(state)
     }
-
 }

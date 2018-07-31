@@ -3,15 +3,12 @@ package com.example.MoneyGoes.views
 import com.example.MoneyGoes.NavigableView
 import com.vaadin.navigator.View
 import com.vaadin.navigator.ViewChangeListener
-import com.vaadin.spring.annotation.SpringView
 import com.vaadin.ui.Label
 import com.vaadin.ui.VerticalLayout
 import com.vaadin.ui.themes.ValoTheme
-import org.springframework.stereotype.Component
 import java.util.logging.Logger
 
-@NavigableView("/mymoney")
-@SpringView(name = "/mymoney")
+@NavigableView("mymoney")
 class MoneyView: VerticalLayout(), View {
 
     val logger = Logger.getLogger("UI")
