@@ -1,6 +1,9 @@
 package com.example.MoneyGoes
 
+import com.example.MoneyGoes.views.AccountView
 import com.example.MoneyGoes.views.MoneyView
+import com.vaadin.annotations.Theme
+import com.vaadin.icons.VaadinIcons
 import com.vaadin.navigator.Navigator
 import com.vaadin.navigator.View
 import com.vaadin.navigator.ViewChangeListener
@@ -13,8 +16,12 @@ import java.lang.annotation.Inherited
 import java.util.logging.Logger
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
+import com.vaadin.ui.CssLayout
+
+
 
 @SpringUI
+@Theme("moneyGoes")
 class VaadinMain: UI() {
 
     override fun init(rq: VaadinRequest?) {
@@ -31,24 +38,21 @@ class VaadinMain: UI() {
             setSizeFull()
         }
         val nav = Navigator(this, mainContent).apply {  }
-        nav.addView(MoneyView::class)
-        nav.addView("", RedirectTo(nav.getNavigationState(MoneyView::class)))
+        nav.fillWithViews()
 
-        val menuContent = VerticalLayout().apply {
-            setWidthUndefined()
-            setHeight("100%")
-            isSpacing = true
-            defaultComponentAlignment = Alignment.MIDDLE_LEFT
+        val menu = CssLayout().apply {
+            addStyleName(ValoTheme.MENU_ROOT)
             addComponent(Label("Menu").apply {
                 styleName = ValoTheme.LABEL_H1
             })
             addComponent(Button("Money") { _ ->
                 nav.navigateTo(MoneyView::class)
             })
-            addComponent(Button("Profile"))
+            addComponent(Button("Profile") {_ ->
+                nav.navigateTo(AccountView::class)
+            })
             addComponent(Button("MoneyGoes"))
 
-            addComponentsAndExpand(VerticalLayout())
             addComponent(Button("About"))
             addComponent(Button("Leave"))
         }
@@ -56,16 +60,23 @@ class VaadinMain: UI() {
             setSizeFull()
             setMargin(false)
             isSpacing = false
-            addComponent(menuContent)
+            addComponent(menu)
             addComponentsAndExpand(mainContent)
         }
         navigator = nav
         return app
     }
 
-    private fun Navigator.addView(component: KClass<out View>) {
-        addView(getNavigationState(component), component.createInstance())
-    }
+}
+
+private fun Navigator.addView(component: KClass<out View>) {
+    addView(getNavigationState(component), component.createInstance())
+}
+
+private fun Navigator.fillWithViews() {
+    addView(MoneyView::class)
+    addView(AccountView::class)
+    addView("", RedirectTo(getNavigationState(MoneyView::class)))
 }
 
 fun Navigator.getNavigationState(component: KClass<out View>): String =
@@ -82,5 +93,11 @@ annotation class NavigableView(val state: String)
 class RedirectTo(val state: String): View, CustomComponent() {
     override fun enter(p0: ViewChangeListener.ViewChangeEvent?) {
         ui.navigator.navigateTo(state)
+    }
+}
+
+open class VerticalView: VerticalLayout(), View {
+    override fun enter(p0: ViewChangeListener.ViewChangeEvent?) {
+        println(this)
     }
 }

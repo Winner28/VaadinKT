@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <kotlin.version>1.2.52</kotlin.version>
+        <kotlin.version>1.2.60</kotlin.version>
     </properties>
 
     <dependencies>
@@ -73,7 +73,7 @@
             <dependency>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-bom</artifactId>
-                <version>8.0.0</version>
+                <version>8.4.4</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
