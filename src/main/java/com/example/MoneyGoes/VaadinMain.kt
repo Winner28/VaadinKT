@@ -5,6 +5,7 @@ import com.example.MoneyGoes.views.MoneyView
 import com.vaadin.annotations.Theme
 import com.vaadin.icons.VaadinIcons
 import com.vaadin.navigator.Navigator
+import com.vaadin.navigator.PushStateNavigation
 import com.vaadin.navigator.View
 import com.vaadin.navigator.ViewChangeListener
 import com.vaadin.server.Page
@@ -17,11 +18,15 @@ import java.util.logging.Logger
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
 import com.vaadin.ui.CssLayout
+import com.vaadin.ui.HorizontalLayout
+
+
 
 
 
 @SpringUI
-@Theme("moneyGoes")
+@PushStateNavigation
+
 class VaadinMain: UI() {
 
     override fun init(rq: VaadinRequest?) {
@@ -38,45 +43,43 @@ class VaadinMain: UI() {
             setSizeFull()
         }
         val nav = Navigator(this, mainContent).apply {  }
+        nav.addView("", RedirectTo("profile"))
         nav.fillWithViews()
 
-        val menu = CssLayout().apply {
-            addStyleName(ValoTheme.MENU_ROOT)
-            addComponent(Label("Menu").apply {
-                styleName = ValoTheme.LABEL_H1
-            })
-            addComponent(Button("Money") { _ ->
+
+        Label("Menu").apply {
+                styleName = ValoTheme.MENU_TITLE
+            }
+        addComponent(Button("Money") { _ ->
                 nav.navigateTo(MoneyView::class)
             })
-            addComponent(Button("Profile") {_ ->
+        addComponent(Button("Profile") {_ ->
                 nav.navigateTo(AccountView::class)
             })
-            addComponent(Button("MoneyGoes"))
+        addComponent(Button("MoneyGoes"))
 
-            addComponent(Button("About"))
-            addComponent(Button("Leave"))
-        }
-        val app = HorizontalLayout().apply {
+        addComponent(Button("About"))
+        addComponent(Button("Leave"))
+
+
+        navigator = nav
+        return HorizontalLayout().apply {
             setSizeFull()
-            setMargin(false)
-            isSpacing = false
-            addComponent(menu)
+            setMargin(true)
+            isSpacing = true
             addComponentsAndExpand(mainContent)
         }
-        navigator = nav
-        return app
     }
 
-}
+    private fun Navigator.addView(component: KClass<out View>) {
+        addView(getNavigationState(component), component.createInstance())
+    }
 
-private fun Navigator.addView(component: KClass<out View>) {
-    addView(getNavigationState(component), component.createInstance())
-}
+    private fun Navigator.fillWithViews() {
+        addView(MoneyView::class)
+        addView(AccountView::class)
+    }
 
-private fun Navigator.fillWithViews() {
-    addView(MoneyView::class)
-    addView(AccountView::class)
-    addView("", RedirectTo(getNavigationState(MoneyView::class)))
 }
 
 fun Navigator.getNavigationState(component: KClass<out View>): String =
