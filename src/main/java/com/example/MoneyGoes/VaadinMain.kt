@@ -3,7 +3,6 @@ package com.example.MoneyGoes
 import com.example.MoneyGoes.views.AccountView
 import com.example.MoneyGoes.views.MoneyView
 import com.vaadin.annotations.Theme
-import com.vaadin.icons.VaadinIcons
 import com.vaadin.navigator.Navigator
 import com.vaadin.navigator.PushStateNavigation
 import com.vaadin.navigator.View
@@ -14,19 +13,15 @@ import com.vaadin.spring.annotation.SpringUI
 import com.vaadin.ui.*
 import com.vaadin.ui.themes.ValoTheme
 import java.lang.annotation.Inherited
-import java.util.logging.Logger
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
-import com.vaadin.ui.CssLayout
 import com.vaadin.ui.HorizontalLayout
-
-
 
 
 
 @SpringUI
 @PushStateNavigation
-
+@Theme("darktheme")
 class VaadinMain: UI() {
 
     override fun init(rq: VaadinRequest?) {
@@ -42,31 +37,51 @@ class VaadinMain: UI() {
         val mainContent = VerticalLayout().apply {
             setSizeFull()
         }
-        val nav = Navigator(this, mainContent).apply {  }
-        nav.addView("", RedirectTo("profile"))
-        nav.fillWithViews()
+        val nav = Navigator(this, mainContent).apply {
+            addView("", RedirectTo("profile"))
+            fillWithViews()
+        }
 
-
-        Label("Menu").apply {
+        val menu = VerticalLayout().apply {
+            setWidthUndefined()
+            setHeight("100%")
+            //isSpacing = true
+            defaultComponentAlignment = Alignment.TOP_LEFT
+            addComponent(Label("Menu").apply {
                 styleName = ValoTheme.MENU_TITLE
-            }
-        addComponent(Button("Money") { _ ->
+
+            })
+            addComponent(Button("Money") { _ ->
                 nav.navigateTo(MoneyView::class)
             })
-        addComponent(Button("Profile") {_ ->
+            addComponent(Button("Profile") {_ ->
                 nav.navigateTo(AccountView::class)
             })
-        addComponent(Button("MoneyGoes"))
+        }
 
-        addComponent(Button("About"))
-        addComponent(Button("Leave"))
+
+        /*Label("Menu").apply {
+                styleName = ValoTheme.MENU_TITLE
+            }*/
+            /*addComponent(Button("Money") { _ ->
+                nav.navigateTo(MoneyView::class)
+            })
+            addComponent(Button("Profile") {_ ->
+                nav.navigateTo(AccountView::class)
+            })
+            addComponent(Button("MoneyGoes"))
+
+            addComponent(Button("About"))
+            addComponent(Button("Leave"))*/
 
 
         navigator = nav
         return HorizontalLayout().apply {
             setSizeFull()
-            setMargin(true)
-            isSpacing = true
+            mainContent.setSizeFull()
+            setMargin(false)
+            isSpacing = false
+            addComponent(menu)
             addComponentsAndExpand(mainContent)
         }
     }
