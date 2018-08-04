@@ -11,7 +11,6 @@ import com.vaadin.server.Page
 import com.vaadin.server.VaadinRequest
 import com.vaadin.spring.annotation.SpringUI
 import com.vaadin.ui.*
-import com.vaadin.ui.themes.ValoTheme
 import java.lang.annotation.Inherited
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
@@ -23,6 +22,7 @@ import com.vaadin.ui.HorizontalLayout
 @PushStateNavigation
 @Theme("darktheme")
 class VaadinMain: UI() {
+
 
     override fun init(rq: VaadinRequest?) {
         Page.getCurrent().setTitle("Admin Page")
@@ -42,48 +42,34 @@ class VaadinMain: UI() {
             fillWithViews()
         }
 
-        val menu = VerticalLayout().apply {
+        val menuContent = VerticalLayout().apply {
             setWidthUndefined()
             setHeight("100%")
-            //isSpacing = true
+            isSpacing = true
             defaultComponentAlignment = Alignment.TOP_LEFT
-            addComponent(Label("Menu").apply {
-                styleName = ValoTheme.MENU_TITLE
-
+            addComponent(Button("Profile") { _ ->
+                nav.navigateTo(AccountView::class)
             })
             addComponent(Button("Money") { _ ->
                 nav.navigateTo(MoneyView::class)
             })
-            addComponent(Button("Profile") {_ ->
-                nav.navigateTo(AccountView::class)
+            val space = VerticalLayout()
+            addComponentsAndExpand(space)
+            addComponent(Button("Leave").apply {
             })
+            setExpandRatio(space, 1f)
+            addStyleName("menuBar")
         }
 
-
-        /*Label("Menu").apply {
-                styleName = ValoTheme.MENU_TITLE
-            }*/
-            /*addComponent(Button("Money") { _ ->
-                nav.navigateTo(MoneyView::class)
-            })
-            addComponent(Button("Profile") {_ ->
-                nav.navigateTo(AccountView::class)
-            })
-            addComponent(Button("MoneyGoes"))
-
-            addComponent(Button("About"))
-            addComponent(Button("Leave"))*/
-
-
-        navigator = nav
-        return HorizontalLayout().apply {
+        val app = HorizontalLayout().apply {
             setSizeFull()
-            mainContent.setSizeFull()
             setMargin(false)
             isSpacing = false
-            addComponent(menu)
+            addComponent(menuContent)
             addComponentsAndExpand(mainContent)
         }
+        navigator = nav
+        return app
     }
 
     private fun Navigator.addView(component: KClass<out View>) {
@@ -97,7 +83,7 @@ class VaadinMain: UI() {
 
 }
 
-fun Navigator.getNavigationState(component: KClass<out View>): String =
+fun getNavigationState(component: KClass<out View>): String =
         component.java.getAnnotation(NavigableView::class.java)?.state
                 ?: throw Throwable("View should be annotated with NavigableView")
 
@@ -105,17 +91,5 @@ fun Navigator.navigateTo(component: KClass<out View>, vararg params: String?) {
     navigateTo(arrayOf(getNavigationState(component), *params.filterNotNull().toTypedArray()).joinToString("/"))
 }
 
-@Inherited
-annotation class NavigableView(val state: String)
 
-class RedirectTo(val state: String): View, CustomComponent() {
-    override fun enter(p0: ViewChangeListener.ViewChangeEvent?) {
-        ui.navigator.navigateTo(state)
-    }
-}
 
-open class VerticalView: VerticalLayout(), View {
-    override fun enter(p0: ViewChangeListener.ViewChangeEvent?) {
-        println(this)
-    }
-}
