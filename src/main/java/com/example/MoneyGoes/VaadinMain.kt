@@ -3,6 +3,7 @@ package com.example.MoneyGoes
 import com.example.MoneyGoes.views.AccountView
 import com.example.MoneyGoes.views.MoneyView
 import com.vaadin.annotations.Theme
+import com.vaadin.icons.VaadinIcons
 import com.vaadin.navigator.Navigator
 import com.vaadin.navigator.PushStateNavigation
 import com.vaadin.navigator.View

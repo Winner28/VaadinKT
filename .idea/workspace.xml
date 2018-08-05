@@ -6,10 +6,8 @@
       <change beforePath="$PROJECT_DIR$/../FreejeCore" beforeDir="false" afterPath="$PROJECT_DIR$/../FreejeCore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../KotlinProject" beforeDir="false" afterPath="$PROJECT_DIR$/../KotlinProject" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/VaadinMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/VaadinMain.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/MoneyView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/MoneyView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/AccountView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/AccountView.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/VAADIN/themes/darktheme/darktheme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/VAADIN/themes/darktheme/darktheme.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/MoneyGoes/VaadinMain$createApp$$inlined$apply$lambda$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/MoneyGoes/VaadinMain$createApp$$inlined$apply$lambda$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Web-Project" beforeDir="false" afterPath="$PROJECT_DIR$/../Web-Project" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../epam-lab-java8-03-2018" beforeDir="false" afterPath="$PROJECT_DIR$/../epam-lab-java8-03-2018" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab" beforeDir="false" afterPath="$PROJECT_DIR$/../lab" afterDir="false" />
@@ -64,8 +62,8 @@
         <counts>
           <entry key="gitignore" value="12" />
           <entry key="java" value="11" />
-          <entry key="kt" value="5286" />
-          <entry key="scss" value="52" />
+          <entry key="kt" value="5332" />
+          <entry key="scss" value="54" />
           <entry key="sql" value="108" />
           <entry key="txt" value="4" />
           <entry key="xml" value="10" />
@@ -76,9 +74,9 @@
           <entry key="DBN-SQL" value="108" />
           <entry key="Git file" value="12" />
           <entry key="JAVA" value="11" />
-          <entry key="Kotlin" value="5286" />
+          <entry key="Kotlin" value="5332" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="SCSS" value="52" />
+          <entry key="SCSS" value="54" />
           <entry key="XML" value="10" />
         </counts>
       </usages-collector>
@@ -86,11 +84,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/VaadinMain.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="48" column="58" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
+            <state relative-caret-position="451">
+              <caret line="51" column="50" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
               <folding>
                 <element signature="e#31#608#0" expanded="true" />
               </folding>
@@ -136,7 +134,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/VAADIN/themes/darktheme/darktheme.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -183,11 +181,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/AccountView.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+            <state relative-caret-position="180">
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding>
                 <element signature="e#37#186#0" expanded="true" />
               </folding>
@@ -249,11 +247,11 @@
         <option value="$PROJECT_DIR$/src/main/resources/VAADIN/themes/freeje/freeje.scss" />
         <option value="$PROJECT_DIR$/src/main/resources/VAADIN/themes/freeje/styles.scss" />
         <option value="$PROJECT_DIR$/src/main/resources/VAADIN/themes/darktheme/styles.scss" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/AccountView.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/MoneyView.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/Utils.kt" />
         <option value="$PROJECT_DIR$/src/main/resources/VAADIN/themes/darktheme/darktheme.scss" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/VaadinMain.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/AccountView.kt" />
       </list>
     </option>
   </component>
@@ -457,7 +455,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533383051690" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533490743052" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -558,7 +556,7 @@
       <workItem from="1532938227584" duration="10183000" />
       <workItem from="1533023408979" duration="981000" />
       <workItem from="1533201479768" duration="48000" />
-      <workItem from="1533321484968" duration="14139000" />
+      <workItem from="1533321484968" duration="16908000" />
     </task>
     <task id="LOCAL-00001" summary="upd">
       <created>1532771008333</created>
@@ -571,7 +569,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37078000" />
+    <option name="totallyTimeSpent" value="39847000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -586,7 +584,7 @@
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -599,7 +597,7 @@
       <window_info id="Web" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32975295" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18904404" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18904404" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -905,16 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/AccountView.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
-          <folding>
-            <element signature="e#37#186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/MoneyView.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -938,16 +926,26 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/VAADIN/themes/darktheme/darktheme.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/VaadinMain.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="48" column="58" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
+        <state relative-caret-position="451">
+          <caret line="51" column="50" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
           <folding>
             <element signature="e#31#608#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/MoneyGoes/views/AccountView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding>
+            <element signature="e#37#186#0" expanded="true" />
           </folding>
         </state>
       </provider>
