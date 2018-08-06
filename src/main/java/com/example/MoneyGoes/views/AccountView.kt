@@ -8,7 +8,7 @@ import com.vaadin.ui.themes.ValoTheme
 
 @NavigableView("profile")
 class AccountView: VerticalView() {
-    
+
     init {
         setMargin(false)
         setSizeFull()
