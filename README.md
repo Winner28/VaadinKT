@@ -1,1 +1,3 @@
-Learn Vaadin
+# Vaadin
+## TODO (finished)
+## MoneyGoes(in progress)
