@@ -1,3 +1,3 @@
 # Vaadin
 ## TODO (finished)
-## MoneyGoes(in progress)
+## MoneyGoes (in progress)
